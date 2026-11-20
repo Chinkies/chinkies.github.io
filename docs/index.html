@@ -3,123 +3,298 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prénom Nom — Programmation Graphique & 3D</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Chinkies — Programmation Graphique, Image & 3D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
+  <!-- Navbar persistante au défilement -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand">Prénom Nom</a>
+      <a href="#" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Chinkies</span>
+      </a>
       <nav class="nav" aria-label="Navigation principale">
         <a href="#projets">Projets</a>
+        <a href="#parcours">Parcours</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <!-- Presentation -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-intro">
-        <p class="eyebrow">Master Programmation Graphique · Recherche de stage</p>
-        <h1 id="hero-title">Rendu 3D, shaders &amp; traitement d'image.</h1>
+  <main>
+    <!-- Bandeau de présentation contrasté (#222733) -->
+    <section class="hero-band" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <p class="eyebrow">Recherche de stage · Programmation Graphique, Image &amp; 3D</p>
+        <h1 id="hero-title">Rendu 3D, imagerie &amp; systèmes visuels</h1>
         <p class="hero-bio">
-          Étudiant en master orienté programmation graphique. Je conçois des outils et moteurs
-          visuels en C++, OpenGL / Vulkan et GLSL, avec un focus sur la performance et le rendu.
+          Étudiant en Master orienté programmation graphique (image et 3D), je m'intéresse au rendu temps réel,
+          à la simulation, au traitement d'image et à l'architecture logicielle. À travers mes projets de cours et
+          personnels, j'aime concevoir des outils clairs, visuels et performants, et je recherche un stage pour
+          approfondir ces problématiques en conditions réelles.
         </p>
-        <div class="skills-strip" aria-label="Compétences clés">
-          <span>C++</span>
-          <span>OpenGL</span>
-          <span>Vulkan</span>
-          <span>GLSL</span>
-          <span>Image / 3D</span>
-        </div>
       </div>
     </section>
 
-    <!-- Projets -->
+    <!-- Section Projets : Grand titre "Mes Projets" + Sélecteur + Visionneuse horizontale -->
     <section id="projets" class="projects-section" aria-labelledby="projects-title">
-      <div class="section-head">
-        <h2 id="projects-title">Projets sélectionnés</h2>
-        <span class="section-note">Cliquer sur un projet pour voir les détails</span>
+      <div class="container">
+        <div class="projects-title-wrap">
+          <h2 id="projects-title">Mes Projets</h2>
+        </div>
+
+        <!-- Sélecteur épuré sans bordure ni arrondi : bandeau info au survol -->
+        <div class="project-selector" role="tablist" aria-label="Liste des projets">
+          <button
+            type="button"
+            class="selector-item is-active"
+            role="tab"
+            aria-selected="true"
+            data-project="0"
+          >
+            <img
+              src="https://placehold.co/480x300/222733/FAFAFA?text=Mosaique+Image"
+              alt="Miniature Projet Mosaïque d'Images"
+            />
+            <span class="selector-drawer">
+              <span class="selector-title">Mosaïque &amp; Traitement d'Image</span>
+              <span class="selector-sub">Traitement d'image · Mosaïque</span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            class="selector-item"
+            role="tab"
+            aria-selected="false"
+            data-project="1"
+          >
+            <img
+              src="https://placehold.co/480x300/2E3545/FAFAFA?text=Projet+Minecraft+3D"
+              alt="Miniature Projet Minecraft 3D"
+            />
+            <span class="selector-drawer">
+              <span class="selector-title">Projet Minecraft (HAI819I)</span>
+              <span class="selector-sub">Rendu 3D · Voxels</span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            class="selector-item"
+            role="tab"
+            aria-selected="false"
+            data-project="2"
+          >
+            <img
+              src="https://placehold.co/480x300/222733/FAFAFA?text=Simulation+Erosion"
+              alt="Miniature Simulation d'Érosion"
+            />
+            <span class="selector-drawer">
+              <span class="selector-title">Simulation d'Érosion</span>
+              <span class="selector-sub">Simulation · Terrain 3D</span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            class="selector-item"
+            role="tab"
+            aria-selected="false"
+            data-project="3"
+          >
+            <img
+              src="https://placehold.co/480x300/2E3545/FAFAFA?text=Network+Nightmare"
+              alt="Miniature Network Nightmare"
+            />
+            <span class="selector-drawer">
+              <span class="selector-title">Network Nightmare</span>
+              <span class="selector-sub">Système · Réseau / Gameplay</span>
+            </span>
+          </button>
+        </div>
       </div>
 
-      <div class="projects-grid">
-        <a href="projets/projet-exemple.html" class="project-card">
-          <div class="project-media">
+      <!-- Visionneuse horizontale pleine largeur : Image à gauche, Informations à droite -->
+      <article class="project-viewer" aria-live="polite">
+        <div class="viewer-horizontal-grid">
+          <!-- Colonne gauche : Visuel + zones latérales à dégradé translucide -->
+          <div class="viewer-media-pane">
             <img
-              src="https://placehold.co/800x500/222733/FAFAFA?text=Rendu+3D+Placeholder+01"
-              alt="Aperçu placeholder du projet 1"
+              id="viewer-image"
+              src="https://placehold.co/1400x900/222733/FAFAFA?text=Mosaique+Image+-+Visuel+1"
+              alt="Visuel du projet sélectionné"
             />
-          </div>
-          <div class="project-body">
-            <h3>Nom du Projet 01</h3>
-            <p>Courte description du projet (algorithme, rendu ou pipeline) et de la stack utilisée.</p>
-          </div>
-        </a>
 
-        <a href="projets/projet-exemple.html" class="project-card">
-          <div class="project-media">
-            <img
-              src="https://placehold.co/800x500/2E3545/FAFAFA?text=Shader+%2F+Image+02"
-              alt="Aperçu placeholder du projet 2"
-            />
-          </div>
-          <div class="project-body">
-            <h3>Nom du Projet 02</h3>
-            <p>Courte description du traitement d'image, shader ou outil interactif développé.</p>
-          </div>
-        </a>
+            <button
+              type="button"
+              class="media-nav media-nav-prev"
+              id="btn-prev-img"
+              aria-label="Image précédente"
+            >
+              <span class="nav-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </span>
+            </button>
 
-        <a href="projets/projet-exemple.html" class="project-card">
-          <div class="project-media">
-            <img
-              src="https://placehold.co/800x500/222733/FAFAFA?text=Moteur+%2F+Outil+03"
-              alt="Aperçu placeholder du projet 3"
-            />
-          </div>
-          <div class="project-body">
-            <h3>Nom du Projet 03</h3>
-            <p>Courte description d'un projet de cours ou personnel orienté temps réel ou géométrie.</p>
-          </div>
-        </a>
+            <button
+              type="button"
+              class="media-nav media-nav-next"
+              id="btn-next-img"
+              aria-label="Image suivante"
+            >
+              <span class="nav-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </span>
+            </button>
 
-        <a href="projets/projet-exemple.html" class="project-card">
-          <div class="project-media">
-            <img
-              src="https://placehold.co/800x500/2E3545/FAFAFA?text=Projet+04+Placeholder"
-              alt="Aperçu placeholder du projet 4"
-            />
+            <div class="media-bar">
+              <span id="viewer-caption">Placeholder : visuel de présentation de la mosaïque d'images.</span>
+              <span id="viewer-counter" class="media-counter">1 / 2</span>
+            </div>
           </div>
-          <div class="project-body">
-            <h3>Nom du Projet 04</h3>
-            <p>Courte description concise de l'objectif visuel et technique du projet.</p>
+
+          <!-- Colonne droite : Informations & points clés du projet -->
+          <div class="viewer-info-pane">
+            <div class="viewer-kicker-row">
+              <span id="viewer-context" class="viewer-context">Projet_Compression_Traitement_Image · Imagerie</span>
+              <a
+                id="viewer-repo"
+                href="https://github.com/Chinkies"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="repo-link"
+              >
+                Dépôt GitHub ↗
+              </a>
+            </div>
+
+            <h3 id="viewer-title">Mosaïque &amp; Traitement d'Image</h3>
+            <p id="viewer-desc" class="viewer-desc">
+              Projet orienté traitement et compression d'image centré sur la génération de mosaïques : découpage d'une
+              image cible en régions/tuiles et association avec des images sources selon leurs caractéristiques visuelles.
+            </p>
+
+            <div id="viewer-tags" class="viewer-tags">
+              <span>Traitement d'image</span>
+              <span>Mosaïque</span>
+              <span>C++ / Python</span>
+            </div>
+
+            <div class="viewer-highlights-box">
+              <span class="side-panel-label">Points clés &amp; mise en œuvre</span>
+              <ul id="viewer-highlights" class="viewer-highlights">
+                <li>Analyse des couleurs / motifs des tuiles et correspondance avec une banque d'images.</li>
+                <li>Assemblage et ajustement visuel pour préserver la lisibilité globale de l'image cible.</li>
+              </ul>
+            </div>
           </div>
-        </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Section Formation & Qualifications revisitée -->
+    <section id="parcours" class="credentials-band" aria-labelledby="credentials-title">
+      <div class="container">
+        <div class="credentials-header">
+          <span class="credentials-mono">02 // PARCOURS &amp; COMPÉTENCES</span>
+          <h2 id="credentials-title">Formation &amp; Qualifications</h2>
+        </div>
+
+        <div class="credentials-grid">
+          <div class="credential-panel">
+            <div class="panel-top">
+              <span class="panel-index">CURSUS</span>
+              <h3>Diplômes &amp; Formation</h3>
+            </div>
+
+            <div class="credential-entries">
+              <div class="credential-entry">
+                <div class="entry-head">
+                  <strong>Master Informatique — Parcours Image &amp; 3D</strong>
+                  <span class="entry-period">En cours</span>
+                </div>
+                <p class="entry-place">Programmation graphique, rendu 3D, géométrie &amp; traitement d'image (à compléter)</p>
+              </div>
+
+              <div class="credential-entry">
+                <div class="entry-head">
+                  <strong>Licence Informatique</strong>
+                  <span class="entry-period">Diplôme obtenu</span>
+                </div>
+                <p class="entry-place">Bases en algorithmique, structures de données et développement logiciel (à compléter)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="credential-panel">
+            <div class="panel-top">
+              <span class="panel-index">STACK</span>
+              <h3>Compétences &amp; Outils</h3>
+            </div>
+
+            <div class="skill-groups">
+              <div class="skill-group">
+                <span class="skill-group-title">Graphisme, 3D &amp; Image</span>
+                <div class="skill-pills">
+                  <strong>Rendu 3D</strong>
+                  <strong>Traitement d'image</strong>
+                  <span>Shaders</span>
+                  <span>Simulation / Géométrie</span>
+                </div>
+              </div>
+
+              <div class="skill-group">
+                <span class="skill-group-title">Langages &amp; Environnement</span>
+                <div class="skill-pills">
+                  <strong>C++</strong>
+                  <span>Git / GitHub</span>
+                  <span>Python</span>
+                  <span>Outils de build</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Contacts -->
+  <!-- Footer Contact stylisé -->
   <footer id="contact" class="site-footer">
     <div class="container footer-inner">
-      <p class="footer-label">Contact</p>
+      <div class="footer-identity">
+        <span class="footer-mono">RECHERCHE DE STAGE</span>
+        <p class="footer-label">Contact &amp; profils</p>
+      </div>
+
       <div class="contact-links">
-        <a href="mailto:prenom.nom@exemple.fr" aria-label="Envoyer un e-mail">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <a href="mailto:contact@exemple.fr" aria-label="Envoyer un e-mail">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
             <rect x="3" y="5" width="18" height="14" rx="2" />
             <path d="m3 7 9 6 9-6" />
           </svg>
           <span>E-mail</span>
         </a>
         <a href="https://github.com/Chinkies" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" />
           </svg>
           <span>GitHub</span>
         </a>
         <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z" />
           </svg>
           <span>LinkedIn</span>
@@ -127,5 +302,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="assets/js/projects.js"></script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+@media (max-width: 960px) {
+  .viewer-horizontal-grid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .viewer-media-pane {
+    height: clamp(280px, 48vh, 440px);
+    min-height: 280px;
+  }
+
+  .viewer-info-pane {
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+    padding: 1.65rem 1.5rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .project-selector {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .media-nav {
+    width: 24%;
+    min-width: 58px;
+  }
+
+  .media-nav-prev {
+    padding-left: 0.65rem;
+  }
+
+  .media-nav-next {
+    padding-right: 0.65rem;
+  }
+}
