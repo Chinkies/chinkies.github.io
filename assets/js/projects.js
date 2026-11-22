@@ -1,92 +1,88 @@
 const PROJECTS = [
   {
     title: "Mosaïque & Traitement d'Image",
-    context: "Projet_Compression_Traitement_Image · Imagerie",
-    repo: "https://github.com/Chinkies",
-    tags: ["Traitement d'image", "Mosaïque", "Compression / Analyse"],
+    context: "2026 - Master 1",
+    repo: "https://github.com/Chinkies/Projet_Compression_Traitement_Image/tree/main",
+    tags: ["C++"],
     description:
-      "Projet de traitement d'image axé sur la composition de mosaïques : analyse des zones d'une image cible et sélection d'images sources pour reconstruire l'ensemble tout en gardant la lisibilité.",
+      "Mosaïque d'images en C++ proposant trois répartitions (grille classique, adaptive tiling basé sur la variance et super-pixels SNIC en espace LAB) associées à la base CIFAR-10 avec seconde passe et rotation des imagettes.",
     highlights: [
-      "Découpage et comparaison colorimétrique / structurelle entre tuiles et images sources.",
-      "Génération de la mosaïque finale et ajustement des rendus (à compléter avec ta stack exacte)."
+      "Trois modes de découpage : grille régulière, quadtree/adaptive tiling (seuil de variance & taille min) et segmentation en super-pixels via SNIC.",
+      "Sélection des imagettes : filtrage via distance entre la moyenne RGB des imagettes et de la région cible sur un top-K de candidats avec rotations (0°, 90°, 180°, 270°) suivie d'une seconde passe testant des échanges entre les imagettes placées puis d'une nouvelle rotation.",
+      "Évaluation quantitative & qualitative : calcul PSNR/SSIM entre l'image originale et les différentes mosaïques produites.",
+      "Pistes d'évolution identifiées : affiner l'adaptive tiling, accélérer le temps de calcul, élargir les angles de rotation, explorer d'autres espaces colorimétriques, améliorer l'heuristique de seconde passe."
     ],
     images: [
       {
-        src: "https://placehold.co/1400x900/222733/FAFAFA?text=Mosaique+Image+-+Visuel+1",
-        caption: "Placeholder : aperçu d'une mosaïque générée depuis une image source."
+        src: "assets/img/Mosaique_1.png",
+        caption: "Mosaïque avec grille classique."
       },
       {
-        src: "https://placehold.co/1400x900/2E3545/FAFAFA?text=Mosaique+Image+-+Visuel+2",
-        caption: "Placeholder : détail ou comparaison de traitement d'image."
-      }
+        src: "assets/img/Mosaique_2.png",
+        caption: "Comparaison entre grille classique et super-pixels SNIC."
+      },
     ]
   },
   {
-    title: "Projet Minecraft (HAI819I)",
-    context: "Master · Rendu 3D & Voxels",
+    title: "Moteur de jeu Voxel (Minecraft-like)",
+    context: "2026 - Master 1",
     repo: "https://github.com/JeremNcl/HAI819I_projet_minecraft",
-    tags: ["Rendu 3D", "Voxels", "Temps réel"],
+    tags: ["C++", "OpenGL", "GLSL", "Physique 3D", "Pathfinding A*", "ECS"],
     description:
-      "Projet de cours HAI819I autour d'un environnement voxel inspiré de Minecraft : génération et affichage d'un monde découpé en blocs, navigation en 3D et rendu interactif.",
+      "Prototype d'un moteur de jeu 3D voxel développé à deux en C++ et OpenGL, sur lequel j'ai pris en charge le moteur physique, les interactions joueur et le pathfinding. Il repose sur un ECS mis en place avec mon binôme",
     highlights: [
-      "Organisation spatiale des chunks / blocs et rendu de scènes voxelisées.",
-      "Interaction caméra et exploration en temps réel (à compléter avec tes modules précis)."
+      "Architecture ECS : mise en place et maintenance d'un système Entity-Component-System pour structurer entités et comportements.",
+      "Moteur physique : gestion des collisions AABB, gravité, sauts et déplacements dans le monde voxel.",
+      "Interactions joueur : raycasting 3D pour poser et casser des blocs.",
+      "IA & navigation : algorithme de pathfinding A* en 3D pour guider les entités sur le terrain."
     ],
     images: [
       {
-        src: "https://placehold.co/1400x900/2E3545/FAFAFA?text=Projet+Minecraft+-+Visuel+1",
-        caption: "Placeholder : vue d'ensemble du monde voxel en 3D."
+        src: "assets/img/Moteur_Voxel_1.png",
+        caption: "Vue générale du monde voxel et du rendu 3D."
       },
       {
-        src: "https://placehold.co/1400x900/222733/FAFAFA?text=Projet+Minecraft+-+Visuel+2",
-        caption: "Placeholder : détail des blocs, éclairage ou interface."
-      }
-    ]
-  },
-  {
-    title: "Simulation d'Érosion",
-    context: "Master · Simulation & Terrain 3D",
-    repo: "https://github.com/CesarCharbey/ErosionSimulation",
-    tags: ["Simulation", "Terrain 3D", "Physique / Algorithmes"],
-    description:
-      "Simulation d'érosion appliquée au relief afin de sculpter et faire évoluer un terrain au fil d'itérations inspirées des processus naturels (ruissellement, transport et dépôt de matière).",
-    highlights: [
-      "Modélisation itérative de l'évolution du relief et visualisation du terrain.",
-      "Observation de l'impact des paramètres de simulation sur la morphologie finale."
-    ],
-    images: [
-      {
-        src: "https://placehold.co/1400x900/222733/FAFAFA?text=Simulation+Erosion+-+Visuel+1",
-        caption: "Placeholder : terrain sculpté par la simulation d'érosion."
+        src: "assets/img/Moteur_Voxel_2.png",
+        caption: "Visualisation du Greedy Meshing."
       },
       {
-        src: "https://placehold.co/1400x900/2E3545/FAFAFA?text=Simulation+Erosion+-+Visuel+2",
-        caption: "Placeholder : évolution entre différentes étapes de simulation."
+        src: "assets/img/Moteur_Voxel_3.png",
+        caption: "Cassage de blocs."
+      },
+      {
+        src: "assets/img/Moteur_Voxel_4.png",
+        caption: "Placement de blocs."
       }
     ]
   },
   {
     title: "Network Nightmare",
-    context: "Projet · Réseau & Système",
-    repo: "https://github.com/Chinkies",
-    tags: ["Réseau", "Architecture", "Développement"],
+    context: "2026 - Master 2",
+    repo: "https://github.com/Chinkies/network_nightmare",
+    itchio: "https://chinkies.itch.io/network-nightmare",
+    tags: ["Godot", "Puzzle Game"],
     description:
-      "Projet axé sur les échanges réseau et la gestion d'interactions/états entre composants, conçu pour expérimenter les contraintes et comportements d'une application connectée.",
+      "Puzzle game d'architecture réseau développé à deux sur Godot et jouable directement dans le navigateur sur itch.io : le joueur achemine des paquets vers les bons serveurs tout en gérant le routage et les contraintes réseau.",
     highlights: [
-      "Structuration de la communication et gestion des états côté client/serveur ou nœuds.",
-      "Mise au point et tests de scénarios (à compléter avec ton langage et cadre exact)."
+      "Concept & gameplay : puzzle game orienté logique et architecture réseau où l'on traite et redirige des paquets vers les serveurs cibles.",
+      "Réalisation sur Godot : développement de l'ensemble de l'UI, des interactions avec les devices et de 3 puzzles jouables.",
+      "Livrable web : export et publication sur itch.io accessibles directement dans le navigateur."
     ],
     images: [
       {
-        src: "https://placehold.co/1400x900/2E3545/FAFAFA?text=Network+Nightmare+-+Visuel+1",
-        caption: "Placeholder : capture ou schéma d'exécution de Network Nightmare."
+        src: "assets/img/network-nightmare_1.png",
+        caption: "Arrivée sur le premier puzzle."
       },
       {
-        src: "https://placehold.co/1400x900/222733/FAFAFA?text=Network+Nightmare+-+Visuel+2",
-        caption: "Placeholder : vue secondaire ou état du système."
+        src: "assets/img/network-nightmare_2.png",
+        caption: "Puzzle 2 en wiring mode."
+      },
+      {
+        src: "assets/img/network-nightmare_3.png",
+        caption: "Simulation sur le puzzle 3."
       }
     ]
-  }
+  },
 ];
 
 let currentProjectIndex = 0;
@@ -99,11 +95,13 @@ const viewerCounter = document.getElementById("viewer-counter");
 const viewerContext = document.getElementById("viewer-context");
 const viewerTitle = document.getElementById("viewer-title");
 const viewerRepo = document.getElementById("viewer-repo");
+const viewerItchio = document.getElementById("viewer-itchio");
 const viewerTags = document.getElementById("viewer-tags");
 const viewerDesc = document.getElementById("viewer-desc");
 const viewerHighlights = document.getElementById("viewer-highlights");
 const btnPrevImg = document.getElementById("btn-prev-img");
 const btnNextImg = document.getElementById("btn-next-img");
+const heroScrollHint = document.querySelector(".hero-scroll-hint");
 
 function renderImage() {
   const project = PROJECTS[currentProjectIndex];
@@ -134,6 +132,15 @@ function renderProject(index) {
   viewerContext.textContent = project.context;
   viewerTitle.textContent = project.title;
   viewerRepo.href = project.repo;
+  if (viewerItchio) {
+    if (project.itchio) {
+      viewerItchio.href = project.itchio;
+      viewerItchio.style.display = "";
+    } else {
+      viewerItchio.style.display = "none";
+    }
+  }
+
   viewerDesc.textContent = project.description;
 
   viewerTags.innerHTML = project.tags
@@ -146,6 +153,19 @@ function renderProject(index) {
 
   renderImage();
 }
+
+function updateScrollHintOpacity() {
+  if (!heroScrollHint) return;
+  const maxFadeDistance = 220; // Distance en pixels pour passer de 1 à 0
+  const progress = Math.min(Math.max(window.scrollY / maxFadeDistance, 0), 1);
+  const opacity = 1 - progress;
+
+  heroScrollHint.style.opacity = opacity.toFixed(3);
+  heroScrollHint.style.visibility = opacity <= 0.01 ? "hidden" : "visible";
+}
+
+window.addEventListener("scroll", updateScrollHintOpacity, { passive: true });
+updateScrollHintOpacity();
 
 selectorButtons.forEach((btn) => {
   btn.addEventListener("click", () => {

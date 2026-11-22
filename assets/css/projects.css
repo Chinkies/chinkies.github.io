@@ -1,20 +1,35 @@
 .projects-section {
-  padding-top: 3.75rem;
+  padding-top: 4.5rem;
   padding-bottom: 0;
+  background-color: var(--bg-main);
 }
 
 /* Titre "Mes Projets" mis en avant sans label ni trait de position */
 .projects-title-wrap {
-  margin-bottom: 2.1rem;
+  margin-bottom: 2.35rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .projects-title-wrap h2 {
+  position: relative;
   margin: 0;
-  font-size: clamp(2rem, 4.2vw, 2.85rem);
+  padding-left: 1rem;
+  font-size: clamp(2.15rem, 4.5vw, 3.15rem);
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.05;
   color: var(--bg-secondary);
+}
+
+.projects-title-wrap h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.14em;
+  bottom: 0.14em;
+  width: 4px;
+  background-color: var(--accent-hover);
 }
 
 /* Sélecteur de projets sans bordure ni arrondi : transition fluide avec le fond uni */
@@ -36,7 +51,7 @@
   border: none;
   border-radius: 0;
   background-color: var(--bg-secondary);
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1 / 1; /* Bien adapté aux logos (ex. 600x530 ou carrés) */
   overflow: hidden;
   outline: none;
 }
@@ -44,13 +59,15 @@
 .selector-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  padding: 0.9rem; /* Évite que le logo colle aux bords */
+  box-sizing: border-box;
+  object-fit: contain; /* Affiche le logo en entier sans découpe */
   transition: transform 0.35s ease, filter 0.25s ease;
 }
 
 .selector-item:hover img,
 .selector-item:focus-visible img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .selector-item.is-active img {
@@ -107,17 +124,35 @@
 .viewer-horizontal-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.38fr) minmax(350px, 1fr);
-  min-height: clamp(450px, 58vh, 610px);
+  height: 720px; /* Hauteur fixe commune aux deux colonnes */
 }
 
 /* Partie image à gauche */
 .viewer-media-pane {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.viewer-image-frame {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 380px;
+  flex: 1; /* Occupe tout l'espace au-dessus de .media-bar */
+  min-height: 0;
   background-color: var(--bg-secondary);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewer-image-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Remplit au max sans couper ni déformer */
+  transition: opacity 0.22s ease;
 }
 
 .viewer-media-pane img {
@@ -127,11 +162,30 @@
   transition: opacity 0.22s ease;
 }
 
+@media (max-width: 900px) {
+  .viewer-horizontal-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .viewer-image-frame {
+    flex: none;
+    height: 300px;
+  }
+
+  .viewer-info-pane {
+    height: auto;
+    overflow-y: visible;
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+  }
+}
+
 /* Zones gauche / droite avec effet fondu d'apparition & disparition */
 .media-nav {
   position: absolute;
   top: 0;
-  bottom: 40px;
+  bottom: 0;
   width: 22%;
   min-width: 76px;
   max-width: 210px;
@@ -215,10 +269,8 @@
 }
 
 .media-bar {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: static;
+  flex-shrink: 0;
   height: 40px;
   padding-inline: 1.25rem;
   background-color: rgba(34, 39, 51, 0.92);
@@ -243,7 +295,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2.6rem clamp(1.6rem, 3.2vw, 3rem);
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 2.2rem clamp(1.6rem, 3.2vw, 3rem);
   border-left: 1px solid var(--border-subtle);
 }
 
@@ -254,6 +309,13 @@
   justify-content: space-between;
   gap: 0.85rem;
   margin-bottom: 0.85rem;
+}
+
+.viewer-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 .viewer-context {
